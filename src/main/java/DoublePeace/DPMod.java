@@ -90,6 +90,10 @@ public class DPMod implements
         return modID;
     }
 
+    public static String repID(String id) {
+        return id.replace(getModID() + ":", "");
+    }
+
     //---------------------------여기까지 건들면 안됨-----------------------//
 
 

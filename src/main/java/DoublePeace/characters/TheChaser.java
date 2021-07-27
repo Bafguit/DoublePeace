@@ -28,10 +28,6 @@ import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import DoublePeace.DPMod;
-import DoublePeace.cards.starter.ReactiveShot;
-import DoublePeace.cards.starter.ChaserDefend;
-import DoublePeace.cards.starter.ChaserStrike;
-import DoublePeace.cards.starter.FlawedStealth;
 import DoublePeace.relics.ShadowInNecklace;
 import DoublePeace.util.TextureLoader;
 

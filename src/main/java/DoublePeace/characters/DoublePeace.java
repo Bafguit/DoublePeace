@@ -1,7 +1,8 @@
 package DoublePeace.characters;
 
 import DoublePeace.abstracts.DPPlayer;
-import DoublePeace.cards.starter.ChaserStrike;
+import DoublePeace.cards.starter.Defend;
+import DoublePeace.cards.starter.Strike;
 import DoublePeace.relics.ShadowInNecklace;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.math.MathUtils;
@@ -10,13 +11,11 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.cutscenes.CutscenePanel;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import static DoublePeace.DPMod.*;
 
@@ -65,7 +64,8 @@ public class DoublePeace extends DPPlayer {
         ArrayList<String> deck = new ArrayList<>();
 
         //여기에 원하는 카드 추가하면 됨
-        deck.add(ChaserStrike.ID);
+        deck.add(Strike.ID);
+        deck.add(Defend.ID);
 
         return deck;
     }
