@@ -1,0 +1,104 @@
+
+TheChaser.png
+size: 1024,2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+shadow
+  rotate: false
+  xy: 1, 1058
+  size: 713, 112
+  orig: 713, 112
+  offset: 0, 0
+  index: -1
+body
+  rotate: false
+  xy: 479, 529
+  size: 250, 307
+  orig: 250, 307
+  offset: 0, 0
+  index: -1
+cpae_back
+  rotate: false
+  xy: 1, 1
+  size: 562, 526
+  orig: 562, 526
+  offset: 0, 0
+  index: -1
+arm_l
+  rotate: false
+  xy: 845, 838
+  size: 166, 172
+  orig: 166, 172
+  offset: 0, 0
+  index: -1
+head
+  rotate: false
+  xy: 664, 838
+  size: 179, 161
+  orig: 179, 161
+  offset: 0, 0
+  index: -1
+feet_r
+  rotate: false
+  xy: 565, 225
+  size: 69, 132
+  orig: 69, 132
+  offset: 0, 0
+  index: -1
+feet_l
+  rotate: false
+  xy: 703, 200
+  size: 121, 96
+  orig: 121, 96
+  offset: 0, 0
+  index: -1
+leg_lower_l
+  rotate: false
+  xy: 711, 1
+  size: 83, 197
+  orig: 83, 197
+  offset: 0, 0
+  index: -1
+leg_upper_l
+  rotate: false
+  xy: 565, 1
+  size: 144, 134
+  orig: 144, 134
+  offset: 0, 0
+  index: -1
+leg_lower_r
+  rotate: false
+  xy: 479, 838
+  size: 183, 175
+  orig: 183, 175
+  offset: 0, 0
+  index: -1
+leg_upper_r
+  rotate: false
+  xy: 716, 1001
+  size: 111, 158
+  orig: 111, 158
+  offset: 0, 0
+  index: -1
+arm_upper_r
+  rotate: false
+  xy: 565, 137
+  size: 136, 86
+  orig: 136, 86
+  offset: 0, 0
+  index: -1
+arm_lower_r
+  rotate: false
+  xy: 716, 1161
+  size: 81, 209
+  orig: 81, 209
+  offset: 0, 0
+  index: -1
+cpae_front
+  rotate: false
+  xy: 1, 529
+  size: 476, 527
+  orig: 476, 527
+  offset: 0, 0
+  index: -1

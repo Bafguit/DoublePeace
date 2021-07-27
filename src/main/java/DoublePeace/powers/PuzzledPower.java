@@ -1,0 +1,99 @@
+package DoublePeace.powers;
+
+import basemod.interfaces.CloneablePowerInterface;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
+import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.core.AbstractCreature;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.localization.PowerStrings;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.monsters.EnemyMoveInfo;
+import com.megacrit.cardcrawl.powers.AbstractPower;
+import DoublePeace.DPMod;
+import DoublePeace.actions.ChaserUtil;
+
+import java.lang.reflect.Field;
+
+public class PuzzledPower extends AbstractPower implements CloneablePowerInterface {
+    public AbstractCreature source;
+
+    public static final String POWER_ID = DPMod.makeID("Puzzled");
+    private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
+    public static final String NAME = powerStrings.NAME;
+    public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
+    private byte moveByte;
+    private AbstractMonster.Intent moveIntent;
+    private EnemyMoveInfo move;
+
+    public PuzzledPower(final AbstractCreature owner) {
+        name = NAME;
+        ID = POWER_ID;
+
+        this.owner = owner;
+
+        type = ChaserUtil.NONE;
+        isTurnBased = false;
+
+        this.loadRegion("confusion");
+
+        updateDescription();
+    }
+
+    public void onInitialApplication() {
+        AbstractDungeon.actionManager.addToBottom(new AbstractGameAction() {
+            public void update() {
+                if (PuzzledPower.this.owner instanceof AbstractMonster) {
+                    PuzzledPower.this.moveByte = ((AbstractMonster)PuzzledPower.this.owner).nextMove;
+                    PuzzledPower.this.moveIntent = ((AbstractMonster)PuzzledPower.this.owner).intent;
+
+                    try {
+                        Field f = AbstractMonster.class.getDeclaredField("move");
+                        f.setAccessible(true);
+                        PuzzledPower.this.move = (EnemyMoveInfo)f.get(PuzzledPower.this.owner);
+                        PuzzledPower.this.move.intent = AbstractMonster.Intent.UNKNOWN;
+                        ((AbstractMonster)PuzzledPower.this.owner).createIntent();
+                    } catch (NoSuchFieldException | IllegalAccessException var2) {
+                        var2.printStackTrace();
+                    }
+                }
+
+                this.isDone = true;
+            }
+        });
+    }
+
+    @Override
+    public int onAttacked(DamageInfo info, int damageAmount) {
+        if(AbstractDungeon.player.hasPower(HidePower.POWER_ID) && info.type == DamageInfo.DamageType.NORMAL && info.owner.isPlayer) {
+            addToBot(new RemoveSpecificPowerAction(AbstractDungeon.player, this.owner, HidePower.POWER_ID));
+        }
+        return damageAmount;
+    }
+
+    public void onRemove() {
+        if (this.owner instanceof AbstractMonster) {
+            AbstractMonster m = (AbstractMonster)this.owner;
+            if (this.move != null) {
+                m.setMove(this.moveByte, this.moveIntent, this.move.baseDamage, this.move.multiplier, this.move.isMultiDamage);
+            } else {
+                m.setMove(this.moveByte, this.moveIntent);
+            }
+
+            m.createIntent();
+            m.applyPowers();
+        }
+
+    }
+
+    @Override
+    public void updateDescription() {
+        description = DESCRIPTIONS[0];
+    }
+
+    @Override
+    public AbstractPower makeCopy() {
+        return new PuzzledPower(owner);
+    }
+}
