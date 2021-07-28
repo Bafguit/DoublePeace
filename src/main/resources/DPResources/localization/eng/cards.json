@@ -1,4 +1,9 @@
 {
+	"${ModID}:Condom": {
+		"NAME": "Condom",
+		"DESCRIPTION": "Heal !M! HP.",
+		"UPGRADE_DESCRIPTION": "Heal !M! HP. Exhaust."
+	},
 	"${ModID}:Strike": {
 		"NAME": "Strike",
 		"DESCRIPTION": "Deal !D! damage."
@@ -13,24 +18,23 @@
 	},
 	"${ModID}:NTR": {
 		"NAME": "NTR",
-		"DESCRIPTION": "Deal !D! damage. NL Apply !M! ${ModID}:Oppai."
+		"DESCRIPTION": "Deal !D! damage. NL Apply ${ModID}:Oppai."
 	},
-	"${ModID}:Brass": {
-		"NAME": "놋쇠",
-		"DESCRIPTION": "${ModID}:출혈을 !M! 부여합니다."
+	"${ModID}:ThreeP": {
+		"NAME": "ThreeP",
+		"DESCRIPTION": "Deal !D! damage to ALL enemies."
 	},
-	"${ModID}:Chase": {
-		"NAME": "추적",
-		"DESCRIPTION": "피해를 !D! 줍니다. ${ModID}:표적을 가진 적 수만큼 카드를 뽑습니다."
+	"${ModID}:Piston": {
+		"NAME": "Piston",
+		"DESCRIPTION": "Draw !M! cards."
 	},
-	"${ModID}:Continuous Slash": {
-		"NAME": "연속 베기",
-		"DESCRIPTION": "피해를 !D! 만큼 2 번 줍니다. NL ${ModID}:신속: *후속 *베기 카드를 1 장 얻습니다.",
-		"UPGRADE_DESCRIPTION": "피해를 !D! 만큼 2 번 줍니다. NL ${ModID}:신속: *후속 *베기+ 카드를 1 장 얻습니다."
+	"${ModID}:Inflation": {
+		"NAME": "Inflation",
+		"DESCRIPTION": "Gain !B! Block. Apply ${ModID}:Oppai to ALL enemies."
 	},
-	"${ModID}:Delusive Strike": {
-		"NAME": "속임수 타격",
-		"DESCRIPTION": "피해를 !D! 줍니다. NL 내가 약화 상태라면, [E] [E] 를 얻습니다."
+	"${ModID}:Hardbass": {
+		"NAME": "Hardbass",
+		"DESCRIPTION": "Ethereal. Deal !D! damage. NL Exhaust."
 	},
 	"${ModID}:Fatal Blitz": {
 		"NAME": "치명적인 돌격",

@@ -29,7 +29,7 @@ public class Strike extends DPCard {
         super(ID, COST, TYPE, COLOR, RARITY, TARGET);
 
         //피해량 정의
-        defineDamage(6, 3); // defineDamage(피해량, 강화시 추가 피해량);
+        defineDamage(DAMAGE, UP_DAMAGE); // defineDamage(피해량, 강화시 추가 피해량);
         //이렇게 하면 따로 강화하는 코드 작성할 필요 없음. 강화시 증가하는 값이 아니라면 defineDamage(6) 이렇게만 쓰면 됨.
         //방어도, 변수는 defineBlock, defineMagic 이 두개를 쓰면 됨.
         //강화시 코스트 변화는 defineUpCost(X) 이렇게 씀. "X만큼 증가/감소"가 아니고 X로 바뀌는거임. 조심!

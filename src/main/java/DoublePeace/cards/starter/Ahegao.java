@@ -27,8 +27,8 @@ public class Ahegao extends DPCard {
     public Ahegao() {
         super(ID, COST, TYPE, COLOR, RARITY, TARGET);
 
-        defineBlock(7, 2); // defineBlock(방어도, 강화시 추가 방어도);
-        defineMagic(2, 1); // defineMagic(파워 중첩, 강화시 추가 중첩);
+        defineBlock(BLOCK, UP_BLOCK); // defineBlock(방어도, 강화시 추가 방어도);
+        defineMagic(MAGIC, UP_MAGIC); // defineMagic(파워 중첩, 강화시 추가 중첩);
     }
 
     //사용시 효과
