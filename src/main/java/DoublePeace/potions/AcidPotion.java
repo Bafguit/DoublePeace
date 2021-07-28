@@ -9,7 +9,6 @@ import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.localization.PotionStrings;
 import com.megacrit.cardcrawl.potions.AbstractPotion;
 import DoublePeace.DPMod;
-import DoublePeace.powers.BleedingPower;
 
 public class AcidPotion extends AbstractPotion {
 

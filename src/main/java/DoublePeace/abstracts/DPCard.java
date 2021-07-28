@@ -40,8 +40,8 @@ public abstract class DPCard extends CustomCard {
 
     public DPCard(String id, int cost,
                   CardType type, CardColor color, CardRarity rarity, CardTarget target) {
-        super(makeID(id), CardCrawlGame.languagePack.getCardStrings(makeID(id)).NAME,
-                makeImgPath("cards/" + id + ".png"), cost, CardCrawlGame.languagePack.getCardStrings(makeID(id)).DESCRIPTION, type, color, rarity, target);
+        super(id, CardCrawlGame.languagePack.getCardStrings(id).NAME,
+                makeImgPath("cards/" + repID(id) + ".png"), cost, CardCrawlGame.languagePack.getCardStrings(id).DESCRIPTION, type, color, rarity, target);
         cardStrings = CardCrawlGame.languagePack.getCardStrings(id);
         NORMAL_DESCRIPTION = cardStrings.DESCRIPTION;
         this.upgradeDescription = UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
@@ -141,8 +141,8 @@ public abstract class DPCard extends CustomCard {
         }
     }
 
-    public static void loadJokeCardImage(AbstractCard card, String name) {
-        String img = makeImgPath("cards/beta/" + name + ".png");
+    public static void loadJokeCardImage(AbstractCard card) {
+        String img = makeImgPath("cards/beta/" + repID(card.cardID) + ".png");
         if (card instanceof DPCard) {
             ((DPCard) card).betaArtPath = img;
         }

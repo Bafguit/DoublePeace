@@ -16,7 +16,6 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.vfx.combat.FlashAtkImgEffect;
 import DoublePeace.patches.interfaces.OnAfterTargetAttackSubscriber;
-import DoublePeace.powers.TargetPower;
 
 import java.util.ArrayList;
 

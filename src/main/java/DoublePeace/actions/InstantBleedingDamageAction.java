@@ -7,7 +7,6 @@ package DoublePeace.actions;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
-import DoublePeace.powers.BleedingPower;
 
 public class InstantBleedingDamageAction extends AbstractGameAction {
 

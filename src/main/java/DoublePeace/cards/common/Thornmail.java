@@ -8,7 +8,6 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import DoublePeace.DPMod;
 import DoublePeace.abstracts.ChaserCard;
 import DoublePeace.characters.TheChaser;
-import DoublePeace.powers.BleedingPower;
 
 import static DoublePeace.DPMod.makeCardPath;
 // "How come this card extends CustomCard and not DynamicCard like all the rest?"

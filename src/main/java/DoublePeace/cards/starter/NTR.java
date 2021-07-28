@@ -2,34 +2,33 @@ package DoublePeace.cards.starter;
 
 import DoublePeace.abstracts.DPCard;
 import DoublePeace.characters.DoublePeace;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import DoublePeace.powers.OppaiPower;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-import static com.megacrit.cardcrawl.actions.AbstractGameAction.*;
-import static DoublePeace.DPMod.*;
+import static DoublePeace.DPMod.makeID;
+import static com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 
-public class Strike extends DPCard {
+public class NTR extends DPCard {
 
-    //TODO 수정할 부분 =======================
-    public static final String ID = makeID("Strike"); //카드 아이디. 띄어쓰기는 안하는게 좋음
+    public static final String ID = makeID("NTR"); //카드 아이디. 띄어쓰기는 안하는게 좋음
     private static final CardType TYPE = CardType.ATTACK; // 카드 타입. ATTACK, SKILL, POWER, CURSE(저주), STATUS(상태이상)
     private static final CardColor COLOR = DoublePeace.Enums.COLOR_DP; //카드 색깔. COLORLESS(무색 카드), CURSE(저주)
     private static final CardRarity RARITY = CardRarity.BASIC; //희귀도. BASIC, SPECIAL, COMMON, UNCOMMON, RARE, CURSE
     private static final CardTarget TARGET = CardTarget.ENEMY; //타겟. ENEMY, ALL_ENEMY, SELF, NONE, SELF_AND_ENEMY, ALL
-    //TODO =================================
 
     private static final int COST = 1; //비용. -1 은 코스트 없음(사용불가), -2 는 X 코스트
-    private static final int DAMAGE = 6; //피해량
+    private static final int DAMAGE = 5; //피해량
     private static final int UP_DAMAGE = 3; //강화하면 추가되는 피해량
 
-    public Strike() {
+    public NTR() {
         super(ID, COST, TYPE, COLOR, RARITY, TARGET);
 
         //피해량 정의
-        defineDamage(6, 3); // defineDamage(피해량, 강화시 추가 피해량);
+        defineDamage(5, 3); // defineDamage(피해량, 강화시 추가 피해량);
         //이렇게 하면 따로 강화하는 코드 작성할 필요 없음. 강화시 증가하는 값이 아니라면 defineDamage(6) 이렇게만 쓰면 됨.
         //방어도, 변수는 defineBlock, defineMagic 이 두개를 쓰면 됨.
         //강화시 코스트 변화는 defineUpCost(X) 이렇게 씀. "X만큼 증가/감소"가 아니고 X로 바뀌는거임. 조심!
@@ -40,7 +39,10 @@ public class Strike extends DPCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
 
         //피해량만큼 공격
-        addToBot(new DamageAction(m, new DamageInfo(p, this.damage), AttackEffect.SLASH_HORIZONTAL));
+        addToBot(new DamageAction(m, new DamageInfo(p, this.damage), AttackEffect.BLUNT_LIGHT));
+
+        //파워 적용
+        addToBot(new ApplyPowerAction(m, p, new OppaiPower(m, p)));
 
         /* ===========================================
 

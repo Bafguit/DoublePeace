@@ -8,7 +8,6 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
-import DoublePeace.powers.TargetPower;
 import DoublePeace.util.TextureLoader;
 
 import static DoublePeace.DPMod.makeID;

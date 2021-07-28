@@ -6,14 +6,16 @@ import basemod.abstracts.CustomRelic;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 
+import static DoublePeace.DPMod.*;
+
 public abstract class DPRelic extends CustomRelic {
 
     public AbstractCard.CardColor color;
 
-    public DPRelic(String setId, RelicTier tier, LandingSound sfx, AbstractCard.CardColor color) {
-        super(DPMod.makeID(setId), DPMod.makeImgPath("relics/" + setId + ".png"), tier, sfx);
+    public DPRelic(String id, RelicTier tier, LandingSound sfx, AbstractCard.CardColor color) {
+        super(id, makeImgPath("relics/" + repID(id) + ".png"), tier, sfx);
         this.color = color;
-        this.outlineImg = TextureLoader.getTexture(DPMod.makeImgPath("relics/outline/" + setId + ".png"));
+        this.outlineImg = TextureLoader.getTexture(makeImgPath("relics/outline/" + repID(id) + ".png"));
     }
 
 }

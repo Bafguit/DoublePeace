@@ -35,7 +35,7 @@ public class DoublePeace extends DPPlayer {
         public static CardLibrary.LibraryType COLOR_DP; //이건 카드 종류 이름이랑 똑같이 해놓으셈
     }
 
-    private static final String ID = "DoublePeace"; //캐릭터 아이디임 원하는대로 바꾸셈
+    public static final String ID = "DoublePeace"; //캐릭터 아이디임 원하는대로 바꾸셈
     private static final PlayerClass CLASS = Enums.DOUBLE_PEACE; //위에 캐릭터 클래스 그대로 쓰셈
     private static final AbstractCard.CardColor CARD_COLOR = Enums.COLOR_DP; // 위에 카드 종류 그대로 쓰셈
 

@@ -6,9 +6,6 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import DoublePeace.DPMod;
 import DoublePeace.abstracts.ChaserCard;
-import DoublePeace.cards.temp.Camouflage;
-import DoublePeace.cards.temp.KnifeThrow;
-import DoublePeace.cards.temp.BloodyWind;
 import DoublePeace.characters.TheChaser;
 
 import java.util.ArrayList;

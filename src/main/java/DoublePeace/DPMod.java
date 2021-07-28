@@ -11,7 +11,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.evacipated.cardcrawl.mod.stslib.Keyword;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
-import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
@@ -19,14 +19,13 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import DoublePeace.characters.TheChaser;
 import DoublePeace.potions.AcidPotion;
-import DoublePeace.potions.ShadowPotion;
-import DoublePeace.potions.TargetPotion;
 import DoublePeace.powers.*;
 
 import java.nio.charset.StandardCharsets;
 
 import static basemod.BaseMod.addRelic;
 import static basemod.BaseMod.addRelicToCustomPool;
+import static com.megacrit.cardcrawl.cards.AbstractCard.*;
 
 //TODO: DON'T MASS RENAME/REFACTOR
 //TODO: DON'T MASS RENAME/REFACTOR
@@ -69,7 +68,7 @@ public class DPMod implements
     public static final Logger logger = LogManager.getLogger(DPMod.class.getName());
 
     private static String modID;
-    
+
     public static String makeCardPath(String resourcePath) {
         return getModID() + "Resources/images/cards/" + resourcePath;
     }
@@ -115,12 +114,24 @@ public class DPMod implements
     //파워 추가
     public void receiveEditPowers() {
         //필수로 해야하는 것은 아님
-        //여기에서 추가된 파워는 명령어에서 사용할 수 있음. 예) power DoublePeace:Power 999
-        BaseMod.addPower(AccelerationPower.class, AccelerationPower.POWER_ID); //굳이 필요하지 않으면 지워도 됨
+        //여기에서 추가된 파워는 명령어에서 사용할 수 있음. 예) power DP:Cum 999
+        BaseMod.addPower(CumPower.class, CumPower.POWER_ID); //굳이 필요하지 않으면 지워도 됨
     }
 
     //카드 색 추가
     public void receiveEditColor() {
+        //캐릭터 DoublePeace 추가
+        BaseMod.addColor(DoublePeace.Enums.COLOR_DP, DoublePeace.COLOR, DoublePeace.COLOR, DoublePeace.COLOR,
+                DoublePeace.COLOR, DoublePeace.COLOR, DoublePeace.COLOR, DoublePeace.COLOR,
+                makeImgPath("512/" + DoublePeace.ID + "/bg_attack.png"),
+                makeImgPath("512/" + DoublePeace.ID + "/bg_skill.png"),
+                makeImgPath("512/" + DoublePeace.ID + "/bg_power.png"),
+                makeImgPath("512/" + DoublePeace.ID + "/orb.png"),
+                makeImgPath("1024/" + DoublePeace.ID + "/bg_attack.png"),
+                makeImgPath("1024/" + DoublePeace.ID + "/bg_skill.png"),
+                makeImgPath("1024/" + DoublePeace.ID + "/bg_power.png"),
+                makeImgPath("1024/" + DoublePeace.ID + "/orb.png"),
+                makeImgPath("512/" + DoublePeace.ID + "/orb_s.png"));
     }
 
     //캐릭터 추가
@@ -138,8 +149,6 @@ public class DPMod implements
         Color maroon = new Color(0.4F, 0, 0, 1).cpy();
         Color dark = new Color(50, 50, 255, 255).cpy();
         BaseMod.addPotion(AcidPotion.class, maroon, maroon, Color.YELLOW, AcidPotion.ID, TheChaser.Enums.THE_CHASER);
-        BaseMod.addPotion(ShadowPotion.class, dark, null, null, ShadowPotion.ID, TheChaser.Enums.THE_CHASER);
-        BaseMod.addPotion(TargetPotion.class, Color.WHITE, Color.RED, null, TargetPotion.ID, TheChaser.Enums.THE_CHASER);
     }
 
     //유물 추가
